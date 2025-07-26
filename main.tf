@@ -1,11 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
-variable "ssh_key_name" {
-  default = "Devops"
-}
-
 resource "aws_vpc" "bankproject_vpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -115,7 +107,7 @@ resource "aws_eks_node_group" "bankproject" {
   instance_types = ["t2.large"]
 
   remote_access {
-    ec2_ssh_key = var.ssh_key_name
+    ec2_ssh_key = "Devops"
     source_security_group_ids = [aws_security_group.bankproject_node_sg.id]
   }
 }
