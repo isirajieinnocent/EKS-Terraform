@@ -108,7 +108,7 @@ resource "aws_eks_node_group" "bankproject" {
     min_size     = 3
   }
 
-  instance_types = ["c7i.2xlarge"]
+  instance_types = ["t3.medium"]
 
   remote_access {
     ec2_ssh_key = "Devops"
